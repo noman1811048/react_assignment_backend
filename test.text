@@ -1,0 +1,23 @@
+CREATE TABLE hotel_rooms (
+    hotel_slug VARCHAR(255) NOT NULL,
+    room_slug VARCHAR(255) NOT NULL,
+    room_image TEXT[],
+    room_title VARCHAR(255) NOT NULL,
+    bedroom_count INT,
+    PRIMARY KEY (hotel_slug, room_slug),
+    FOREIGN KEY (hotel_slug) REFERENCES hotels(slug) ON DELETE CASCADE
+);
+CREATE TABLE hotels (
+    slug VARCHAR(255) PRIMARY KEY,
+    images TEXT[], -- Array of image URLs
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    guest_count INT,
+    bedroom_count INT,
+    bathroom_count INT,
+    amenities TEXT[], -- Array of amenities
+    host_information TEXT,
+    address TEXT,
+    latitude DECIMAL(9, 6),
+    longitude DECIMAL(9, 6)
+);

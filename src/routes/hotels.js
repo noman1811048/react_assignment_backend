@@ -6,6 +6,8 @@ const upload = require('../middlewares/upload');
 // Create a new hotel
 router.post('/', upload.array('images', 10), hotelController.createHotel); // Allow up to 10 images
 
-// Other routes can be defined here
+// Get all hotels with associated rooms
+router.get('/', hotelController.getHotels);
 
 module.exports = router;
+

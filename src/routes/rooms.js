@@ -7,6 +7,6 @@ const upload = require('../middlewares/upload'); // Import upload middleware
 router.post('/', upload.array('room_image', 10), roomController.createRoom); // Allow up to 10 images
 
 // Get rooms by hotel slug
-router.get('/:hotelSlug', roomController.getRoomsByHotel);
+router.get('/:hotel_slug', roomController.getRoomsByHotel);
 
 module.exports = router;

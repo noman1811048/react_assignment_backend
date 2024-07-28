@@ -1,3 +1,4 @@
+// models/hotels.js
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db'); // Import the sequelize instance
 
@@ -73,7 +74,7 @@ const Room = sequelize.define('Room', {
 });
 
 // Define associations
-Hotel.hasMany(Room, { foreignKey: 'hotel_slug' });
+Hotel.hasMany(Room, { foreignKey: 'hotel_slug', as: 'rooms' });
 Room.belongsTo(Hotel, { foreignKey: 'hotel_slug' });
 
 module.exports = { Hotel, Room };

@@ -7,7 +7,7 @@ const sequelize = new Sequelize(config.database.name, config.database.user, conf
   host: config.database.host,
   dialect: 'postgres',
   port: config.database.port,
-  logging: false // Set to true if you want to see SQL logs
+  logging: false 
 });
 
 const connectDB = async () => {

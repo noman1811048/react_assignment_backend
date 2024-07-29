@@ -1,6 +1,6 @@
 // models/hotels.js
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/db'); // Import the sequelize instance
+const sequelize = require('../config/db'); 
 
 const Hotel = sequelize.define('Hotel', {
     slug: {

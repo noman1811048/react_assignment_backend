@@ -14,7 +14,7 @@ exports.createRoom = async (req, res) => {
         }
 
         // Process multiple images
-        const room_image = req.files.map(file => `/uploads/${file.filename}`); // Correct path to image files
+        const room_image = req.files.map(file => `/uploads/${file.filename}`); 
 
         const room = await Room.create({
             hotel_slug, room_slug, room_image: room_image, room_title, bedroom_count
@@ -30,8 +30,13 @@ exports.createRoom = async (req, res) => {
 exports.getRoomsByHotel = async (req, res) => {
     try {
         let { hotel_slug } = req.params;
-        hotel_slug = hotel_slug.trim(); // Remove any leading/trailing whitespace
 
+         // Ensure hotel_slug is not empty
+         if (!hotel_slug.trim()) {
+            return res.status(400).json({ error: 'Hotel slug is required' });
+        }
+        
+        hotel_slug = hotel_slug.trim(); 
         const rooms = await Room.findAll({ where: { hotel_slug: hotel_slug } });
 
         if (rooms.length === 0) {

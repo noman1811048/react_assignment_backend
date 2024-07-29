@@ -7,6 +7,11 @@ exports.createHotel = async (req, res) => {
             amenities, host_information, address, latitude, longitude
         } = req.body;
 
+
+        if (!slug || !title || !description) {
+            return res.status(400).json({ error: 'Required fields are missing' });
+        }
+
         const images = req.files.map(file => `/uploads/${file.filename}`);
 
         const hotel = await Hotel.create({
@@ -17,7 +22,7 @@ exports.createHotel = async (req, res) => {
 
         res.status(201).json(hotel);
     } catch (error) {
-        res.status(500).json({ error: error.message });
+        res.status(500).json({ error: 'Internal Server Error' });
     }
 };
 
@@ -26,11 +31,11 @@ exports.getHotels = async (req, res) => {
         const hotels = await Hotel.findAll({
             include: [{
                 model: Room,
-                as: 'rooms' // Alias for the association, if any
+                as: 'rooms'
             }]
         });
         res.status(200).json(hotels);
     } catch (error) {
-        res.status(500).json({ error: error.message });
+        res.status(500).json({ error: 'Internal Server Error' });
     }
 };

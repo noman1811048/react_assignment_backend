@@ -10,6 +10,7 @@ This project provides REST APIs for serving hotel details from a PostgreSQL data
 - [Configuration](#configuration)
 - [Usage](#usage)
 - [API Endpoints](#api-endpoints)
+- [Folder Structure](#folder_structure)
 
 
 ## Features
@@ -58,8 +59,47 @@ Create a `config.json` file in the root directory with the following structure:
 }
 ```
 ## Usage 
-##### npm start
+``` npm start ```
+
 ## API Endpoints
-##### Get all hotels
-#### URL: /api/hotels and /api/rooms
-#### Method: GET
+```
+Get all hotels
+
+    URL: /api/hotels
+    Method: GET
+    Description: Retrieve a list of all hotels.
+
+Get all rooms
+
+    URL: /api/rooms
+    Method: GET
+    Description: Retrieve a list of all rooms.
+```
+## Folder Structure
+```
+react_assignment_backend
+├── config
+│   ├── config.json        # Configuration file for database credentials
+│   ├── db.js              # Database connection setup
+├── controllers
+│   ├── hotels.js          # Controller for hotel-related routes
+│   ├── rooms.js           # Controller for room-related routes
+├── models
+│   ├── hotels.js          # Sequelize model definition for Hotel
+│   ├── rooms.js           # Sequelize model definition for Room
+├── routes
+│   ├── hotels.js          # Routes for hotel-related endpoints
+│   ├── rooms.js           # Routes for room-related endpoints
+├── .gitignore             # Git ignore file
+├── server.js              # Entry point of the application
+├── package.json           # Node.js project file
+└── README.md              # Project README file
+```
+## Get All Hotels
+### Request
+``` curl -X GET http://localhost:8080/api/hotels
+```
+## Get All Rooms
+### Request
+``` curl -X GET http://localhost:8080/api/rooms/:hotel_slug
+```

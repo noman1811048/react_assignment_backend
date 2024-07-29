@@ -1,9 +1,9 @@
 {
     "database": {
       "host": "localhost",
-      "port": 5432,
+      "port": 5433,
       "user": "postgres",
-      "password": "noman323",
+      "password": "p@stgress",
       "name": "hotel_info"
     },
     "server": {

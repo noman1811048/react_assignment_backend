@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
-const hotelRoutes = require('./src/routes/hotels');
-const roomRoutes = require('./src/routes/rooms'); // Add this line
-require('./src/config/db'); // Ensure PostgreSQL connection is initialized
+const hotelRoutes = require('./routes/hotels');
+const roomRoutes = require('./routes/rooms'); // Add this line
+require('./config/db'); // Ensure PostgreSQL connection is initialized
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

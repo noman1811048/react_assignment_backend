@@ -97,9 +97,11 @@ react_assignment_backend
 ```
 ## Get All Hotels
 ### Request
-``` curl -X GET http://localhost:8080/api/hotels
+```
+curl -X GET http://localhost:8080/api/hotels
 ```
 ## Get All Rooms
 ### Request
-``` curl -X GET http://localhost:8080/api/rooms/:hotel_slug
+```
+curl -X GET http://localhost:8080/api/rooms/:hotel_slug
 ```
